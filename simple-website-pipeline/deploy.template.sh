@@ -1,0 +1,11 @@
+#!/bin/bash
+# cdk-deploy-to.sh
+
+export CDK_DEPLOY_STACKNAME=
+export CDK_DEPLOY_GITHUB_OWNER=
+export CDK_DEPLOY_GITHUB_REPOSITORY=
+export CDK_DEPLOY_GITHUB_BRANCH=
+export CDK_DEPLOY_GITHUB_OAUTH_TOKEN=
+export CDK_DEPLOY_BUCKET_ARN=
+
+cdk deploy
