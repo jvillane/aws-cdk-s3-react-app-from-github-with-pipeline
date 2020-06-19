@@ -1,9 +1,6 @@
-# Welcome to your CDK TypeScript project!
+## aws-cdk-s3-react-app-from-github-with-pipeline
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`AwsCdkS3ReactAppFromGithubWithPipelineStack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
-
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+A
 
 ## Useful commands
 

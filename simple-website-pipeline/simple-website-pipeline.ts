@@ -16,16 +16,16 @@ export interface SimpleWebsitePipelineStackProps extends cdk.StackProps {
   }
 }
 
-export class SimpleWebsitePipelineStack extends cdk.Stack {
-  constructor(scope: cdk.App, id: string, props: SimpleWebsitePipelineStackProps) {
-    super(scope, id, props);
+export class SimpleWebsitePipeline extends cdk.Construct {
+  constructor(scope: cdk.Construct, id: string, props: SimpleWebsitePipelineStackProps) {
+    super(scope, id);
 
     const outputSources = new codepipeline.Artifact();
     const outputWebsite = new codepipeline.Artifact();
 
     const pipeline = new codepipeline.Pipeline(this, 'pipeline', {
       pipelineName: `${id}-pipeline`,
-      artifactBucket: s3.Bucket.fromBucketArn(this, 'ArtifactBucketByArn', 'arn:aws:s3:::pit-codepipeline-artifacts'),
+      artifactBucket: s3.Bucket.fromBucketArn(this, 'ArtifactBucketByArn', 'arn:aws:s3:::account-codepipeline-artifacts'),
       restartExecutionOnUpdate: true
     });
 
