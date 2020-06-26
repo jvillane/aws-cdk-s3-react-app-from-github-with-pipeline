@@ -49,9 +49,9 @@ export class SimpleWebsitePipeline extends cdk.Construct {
       actions: [
         // AWS CodePipeline action to run CodeBuild project
         new codepipelineActions.CodeBuildAction({
-          actionName: 'Website',
+          actionName: `${id}-Website`,
           project: new codebuild.PipelineProject(this, `${id}-BuildWebsite`, {
-            projectName: 'Website',
+            projectName: `${id}-Website`,
             buildSpec: codebuild.BuildSpec.fromSourceFilename('./infra/buildspec.yml'),
           }),
           input: outputSources,
@@ -67,7 +67,7 @@ export class SimpleWebsitePipeline extends cdk.Construct {
       actions: [
         // AWS CodePipeline action to deploy CRA website to S3
         new codepipelineActions.S3DeployAction({
-          actionName: 'Website',
+          actionName: `${id}-Website`,
           input: outputWebsite,
           bucket: bucket,
         }),

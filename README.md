@@ -1,6 +1,4 @@
-## aws-cdk-s3-react-app-from-github-with-pipeline
-
-A
+# aws-cdk-s3-react-app-from-github-with-pipeline
 
 ## Useful commands
 
