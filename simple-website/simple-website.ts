@@ -59,7 +59,7 @@ export class SimpleWebsite extends cdk.Construct {
         securityPolicy: cloudfront.SecurityPolicyProtocol.TLS_V1_1_2016,
       },
       errorConfigurations: [{
-        errorCode: 403,
+        errorCode: 404,
         errorCachingMinTtl: 300,
         responsePagePath: '/index.html',
         responseCode: 200
