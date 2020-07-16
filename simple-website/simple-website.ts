@@ -10,7 +10,7 @@ import * as s3 from '@aws-cdk/aws-s3';
 
 export interface SimpleWebsiteProps {
   domainName: string;
-  siteSubDomain: string;
+  siteSubDomain?: string;
 }
 
 export class SimpleWebsite extends cdk.Construct {
@@ -18,7 +18,7 @@ export class SimpleWebsite extends cdk.Construct {
     super(parent, id);
 
     const hostedZone = route53.HostedZone.fromLookup(this, `${id}-zone`, { domainName: props.domainName });
-    const siteDomain = props.siteSubDomain + '.' + props.domainName;
+    const siteDomain = props.siteSubDomain && props.siteSubDomain.length > 0 ? props.siteSubDomain + '.' + props.domainName : props.domainName;
     new cdk.CfnOutput(this, 'Site', { value: 'https://' + siteDomain });
 
     const oai = new cloudfront.OriginAccessIdentity(this, `${id}-oai`, {
